@@ -46,7 +46,7 @@ void heap_sort(T *array, size_t size) {
     }
 
     // Sort
-    for (size_t i = size - 1; i > 0; --i) {
+    for (int i = size - 1; i > 0; --i) {
         std::swap(array[0], array[i]);
         heapify(array, i, 0);
     }
