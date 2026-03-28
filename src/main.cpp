@@ -4,11 +4,13 @@
 
 #include "sorting.h"
 
-void make_sorting(int *array, size_t size, std::function<void(int *, size_t)> sorting_algorithm) {
+void make_sorting(int *array, size_t size, std::function<void(int *, size_t)> sorting_algorithm)
+{
     std::vector<int> array_copy(array, array + size);
 
     sorting_algorithm(array_copy.data(), size);
-    for (size_t i = 0; i < size; ++i) {
+    for (size_t i = 0; i < size; ++i)
+    {
         std::cout << array_copy[i] << " ";
     }
 }
