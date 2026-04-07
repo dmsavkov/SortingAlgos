@@ -4,12 +4,11 @@
 
 #include "sorting.h"
 
-void make_sorting(int *array, size_t size, std::function<void(int *, size_t)> sorting_algorithm)
+// deep copy of a vector
+void make_sorting(std::vector<int> array_copy, void (*sorting_algorithm)(std::vector<int>&))
 {
-    std::vector<int> array_copy(array, array + size);
-
-    sorting_algorithm(array_copy.data(), size);
-    for (size_t i = 0; i < size; ++i)
+    sorting_algorithm(array_copy);
+    for (size_t i = 0; i < array_copy.size(); ++i)
     {
         std::cout << array_copy[i] << " ";
     }
@@ -18,11 +17,10 @@ void make_sorting(int *array, size_t size, std::function<void(int *, size_t)> so
 int main()
 {
     std::vector<int> array = {5, 1, 7, 9, 2, 5, 6};
-    size_t size = array.size();
     std::cout << "Insertion Sort: ";
-    make_sorting(array.data(), size, insertion_sort<int>);
+    make_sorting(array, insertion_sort<int>);
     std::cout << "\nHeap Sort: ";
-    make_sorting(array.data(), size, heap_sort<int>);
+    make_sorting(array, heap_sort<int>);
     std::cout << std::endl;
     return 0;
 }
