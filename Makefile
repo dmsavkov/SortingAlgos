@@ -15,8 +15,9 @@ clean :
 	- rm *.o
 	- rm *.hdrdep.bak
 
+# ../ because main Makefile is in src/
 cleanall : clean
-	- rm release debug debug_test
+	- rm -rf ../build 
 	- echo > Makefile.hdrdep
 
 mrproper : cleanall
