@@ -2,17 +2,22 @@ include ../Makefile
 
 BUILD_DIR = ../build
 
-all: release debug utest
+all: release debug utest benchmark
 
 release : $(BUILD_DIR)/release
 debug   : $(BUILD_DIR)/debug
 utest   : $(BUILD_DIR)/utest
+benchmark: $(BUILD_DIR)/benchmark
 
 $(BUILD_DIR)/release : main.r.o 
 	mkdir -p "$(BUILD_DIR)"
 	$(LD) -o $@ $^
 
 $(BUILD_DIR)/debug : main.d.o 
+	mkdir -p "$(BUILD_DIR)"
+	$(LD) -o $@ $^
+
+$(BUILD_DIR)/benchmark : main_profile_sorts.r.o profiling.r.o
 	mkdir -p "$(BUILD_DIR)"
 	$(LD) -o $@ $^
 
