@@ -24,7 +24,7 @@ int main() {
   REGISTER(MAP, "insertion", insertion_sort);
   REGISTER(MAP, "heap", heap_sort);
 
-  std::vector<size_t> sizes = {100, 2000, 20000};
+  std::vector<size_t> sizes = {10, 100, 5000, 50000};
   int iters = 20;
 
   orchestrate(available_dtypes, available_algos, sizes, iters, output_path,
