@@ -5,7 +5,7 @@
 #include <utility>
 #include <vector>
 
-struct DynamicMetrics 
+struct DynamicMetrics
 {
     size_t n_swaps = 0;
     size_t n_comparisons = 0;
